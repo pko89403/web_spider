@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 # 크롤링 -> 웹사이트에서 내가 원하는 것을 추출해내는 기능
 if __name__ == "__main__":
     # 웹페이지 주소를 복사해서 requests.get()을 이용해서 가져온다.
-    res = requests.get('http://v.media.daum.net/v/20170615203441266')
+    res = requests.get('https://github.com/pko89403?tab=repositories')
     # 페이지 소스 보기 - 뭔가 이상한 구조의 코드 들이 나온다. -> HTML5
     # print(res.content, '\n')
     # BeautifulSoup 가 HTML을 파싱함
@@ -14,3 +14,7 @@ if __name__ == "__main__":
     # 함수 get_text로 원하는 결과를 추출한다.
     mydata = soup.find('title')
     print( mydata.get_text() )
+
+    mydata2 = soup.findAll('p')
+    for data in mydata2:
+        print( data.string )
